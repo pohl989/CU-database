@@ -56,3 +56,7 @@ gem 'devise'
 gem 'haml', git: "https://github.com/haml/haml.git"
 gem 'haml-rails'
 gem 'simple_form'
+gem 'bootstrap-sass'
+gem 'font-awesome-rails'
+gem 'jquery-rails'
+gem 'popper_js'
