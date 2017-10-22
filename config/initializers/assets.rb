@@ -12,3 +12,33 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+# Precompile additional assets.
+# application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
+Rails.application.config.assets.precompile += %w(
+
+home.js
+home.css
+
+user.js
+user.css
+
+profiles.js
+profiles.css
+
+tables.js
+tables.css
+
+check.min.js
+query.jeditable.js
+grid.locale-el.js
+query.jqGrid.min.js
+query-ui.min.js
+ootable.all.min.js
+
+steps/jquery.steps.min.js
+steps/jquery.steps.css
+
+validate/jquery.validate.min.js
+
+datapicker/bootstrap-datepicker.js
+)
