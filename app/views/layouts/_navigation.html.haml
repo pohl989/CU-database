@@ -1,0 +1,55 @@
+%nav.navbar-default.navbar-static-side{:role => "navigation"}
+  .sidebar-collapse
+    %ul#side-menu.nav.metismenu
+      %li.nav-header
+        .dropdown.profile-element
+          %span
+            %img.img-circle{:alt => "image", :src => "#{image_url 'profile_small.jpg'}"}/
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            %span.clear
+              %span.block.m-t-xs
+                %strong.font-bold= (current_user.email.gsub(/@.*/,'') if signed_in? )||  "Sign In"
+              %span.text-muted.text-xs.block
+                = (current_user.role.upcase if signed_in? )||  ""
+                %b.caret
+          %ul.dropdown-menu.animated.fadeInRight.m-t-xs
+            - if signed_in?
+              %li
+                = link_to destroy_user_session_path, method: :delete do
+                  Logout
+            - else
+              %li
+                = link_to new_user_session_path do
+                  Login
+
+        .logo-element
+          = link_to "/" do
+            %img.img-circle{:alt => "image", :src => "#{image_url 'CU HD Logo.jpg'}"}/
+      %li{:class => "#{'active' if current_page?('/')}"}
+        = link_to "/" do
+          %i.fa.fa-tachometer{"aria-hidden" => "true"}
+          %span.nav-label Dashboard
+      - if signed_in?
+        - if current_user.admin?
+          %li{:class => "#{'active' if current_page?('/')}"}
+            = link_to root_path do
+              %i.fa.fa-user{"aria-hidden" => "true"}
+              %span.nav-label User Management
+      %li{:class => "#{'active' if current_page?('/')}"}
+        %a{:href => "#"}
+          %i.fa.fa-area-chart{"aria-hidden" => "true"}
+          %span.nav-label{"data-i18n" => "nav.otherpages"} Reporting
+          %span.fa.arrow
+        %ul{:class => "nav nav-second-level collapse"}
+          %li{:class => "#{'active' if current_page?('/')}"}
+            = link_to "Report 1", root_path
+          %li{:class => "#{'active' if current_page?('/')}"}
+            = link_to "Report 2", root_path
+          %li{:class => "#{'active' if current_page?('/')}"}
+            = link_to "Report 3", root_path
+          %li{:class => "#{'active' if current_page?('/')}"}
+            = link_to "Report 4", root_path
+          %li{:class => "#{'active' if current_page?('/')}"}
+            = link_to "Report 5", root_path
+          %li{:class => "#{'active' if current_page?('/')}",}
+            = link_to "Report 6", root_path

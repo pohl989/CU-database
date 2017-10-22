@@ -1,0 +1,43 @@
+.row.border-bottom
+  %nav.navbar.navbar-static-top.white-bg{:role => "navigation", :style => "margin-bottom: 0"}
+    .navbar-header.col-md-1
+      %a.navbar-minimalize.minimalize-styl-2.btn.btn-primary{:href => "#"}
+        %i.fa.fa-bars
+
+      -# %form.navbar-form-custom{:action => "/", :method => "post", :role => "search"}
+      -#   .form-group
+      -#     %input#top-search.form-control{:name => "top-search", :placeholder => "Search for something...", :type => "text"}/
+    .col-md-11
+      %ul.nav.navbar-top-links.navbar-right.col-md-12
+        %li.col-md-10
+          %h1.text-center.hidden-xs{:style => "color: #ffffff"}
+            Communidadas Unidas
+
+          - if signed_in?
+            %li.col-md-2.pull-right
+              = link_to destroy_user_session_path, method: :delete do
+                %i.fa.fa-sign-out
+                Log out
+          - else
+            %li.col-md-2.pull-right
+              = link_to new_user_session_path do
+                %i.fa.fa-sign-in
+                Log in
+.row.wrapper.border-bottom.white-bg.page-heading
+  .col-lg-5
+    %h2= content_for?(:title) ? yield(:title) : 'CU'
+    %ol.breadcrumb
+      %li
+        = link_to root_path  do
+          %span.fa.fa-home
+          -# = "#{current_user.role.capitalize} Dashboard"
+      -# = render_breadcrumbs tag: :li, separator: ""
+  -# .col-lg-7
+  -#   .text-center.m-t-lg
+  -#     %h1
+  -#       = @mainTitle
+  -#     %small
+  -#       = @mainDesc
+
+:css
+  .navbar-top-links li:last-child { margin-right: 0px;}
