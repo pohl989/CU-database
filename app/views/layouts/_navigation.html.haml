@@ -4,7 +4,7 @@
       %li.nav-header
         .dropdown.profile-element
           %span
-            %img.img-circle{:alt => "image", :src => "#{image_url 'profile_small.jpg'}"}/
+            %img{:alt => "image", :src => "#{image_url 'CU-150.png'}"}/
           %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
             %span.clear
               %span.block.m-t-xs
@@ -24,7 +24,7 @@
 
         .logo-element
           = link_to "/" do
-            %img.img-circle{:alt => "image", :src => "#{image_url 'CU HD Logo.jpg'}"}/
+            %img{:alt => "image", :src => "#{image_url 'profile_small.jpg'}"}/
       %li{:class => "#{'active' if current_page?('/')}"}
         = link_to "/" do
           %i.fa.fa-tachometer{"aria-hidden" => "true"}

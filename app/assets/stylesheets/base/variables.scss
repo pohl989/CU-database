@@ -1,3 +1,10 @@
+// CU #B81111
+$cu-main: #B81111;
+$cu-second: #B83B11;
+// $cu-third:
+$cu-accent: #11B8B8;
+
+
 // Basic Colors
 $navy: #1ab394;       // Primary color
 $dark-gray: #c2c2c2;  // Default color
@@ -20,8 +27,8 @@ $spin-margin: 0 auto;
 
 // IBOX colors ( default panel colors)
 $border-color: #e7eaec;     // IBox border
-$ibox-title-bg:#ffffff;     // IBox Background header
-$ibox-content-bg:#ffffff;   // IBox Background content
+$ibox-title-bg: #ffffff;     // IBox Background header
+$ibox-content-bg: #ffffff;   // IBox Background content
 
 //Sidebar width
 $sidebar-width: 220px;

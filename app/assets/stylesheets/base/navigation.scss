@@ -13,7 +13,7 @@
 }
 
 .navbar-default .nav > li > a:hover, .navbar-default .nav > li > a:focus {
-  background-color: darken($nav-bg, 3%);
+  background-color: darken($cu-main, 3%);//darken($nav-bg, 3%);
   color: white;
 }
 
@@ -152,7 +152,7 @@
 
 .nav-header {
   padding: 33px 25px;
-  background-color: $nav-bg;
+  background-color: $cu-main; //$nav-bg;
   background-image: $nav-profile-pattern;
 
 }
@@ -162,12 +162,12 @@
 }
 
 ul.nav-second-level {
-  background: darken($nav-bg, 3%);
+  background: darken($cu-main, 3%);//darken($nav-bg, 3%);
 }
 
 .nav > li.active {
-  border-left: 4px solid darken($navy, 2%);
-  background: darken($nav-bg, 3%);
+  border-left: 4px solid darken($cu-main, 2%);//solid darken($navy, 2%);
+  background: darken($cu-main, 3%);//darken($nav-bg, 3%);
 }
 
 .nav.nav-second-level > li.active {
@@ -281,7 +281,7 @@ body.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
   position: absolute;
   left: 70px;
   top: 0;
-  background-color: $nav-bg;
+  background-color: $cu-main; //$nav-bg;
   padding: 10px 10px 10px 10px;
   font-size: 12px;
 }
@@ -446,7 +446,7 @@ body.canvas-menu .logo-element {
 
 body.mini-navbar .nav-header {
   padding: 0;
-  background-color: $navy;
+  background-color: $cu-main;//$navy;
 }
 
 body.canvas-menu .nav-header {

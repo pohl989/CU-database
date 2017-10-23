@@ -1,6 +1,6 @@
 .sidebar-panel {
   width: 220px;
-  background: darken($gray, 3%);
+  background: yellow;//darken($gray, 3%);
   padding: 10px 20px;
   position: absolute;
   right: 0;
@@ -87,11 +87,11 @@
     padding: 12px 10px;
     margin: 0;
     border-radius: 0;
-    background: $nav-bg;
+    background: $cu-main; //$nav-bg;
     color: #fff;
     text-align: center;
 
-    border-right: 1px solid lighten($nav-bg, 2%);
+    border-right: 1px solid lighten($cu-main, 2%); //lighten($nav-bg, 2%);
   }
 
   ul.nav-tabs li.active a {
