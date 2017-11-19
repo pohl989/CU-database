@@ -39,6 +39,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  # To add tests
+  gem 'rspec-rails', '~> 3.6'
 end
 
 group :development do
@@ -60,3 +62,4 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'popper_js'
+gem 'pundit'
