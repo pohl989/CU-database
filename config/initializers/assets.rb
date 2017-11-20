@@ -28,6 +28,9 @@ profiles.css
 tables.js
 tables.css
 
+clients.js
+clients.css
+
 check.min.js
 query.jeditable.js
 grid.locale-el.js
