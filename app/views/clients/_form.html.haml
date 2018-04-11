@@ -1,11 +1,101 @@
-= simple_form_for(@client) do |f|
-  = f.error_notification
+%form#clientForm{:action => "#"}
+  %div
+    %h3 Account
+    %section
+      %label{:for => "street_address"} User name *
+      %input{:name => "street_address", :type => "text"}/
+      %p (*) Mandatory
+    %h3 Profile
+    %section
+      %label{:for => "name"} First name *
+      %input{:first_name => "first_name", :type => "text"}/
+      %label{:for => "surname"} Last name *
+      %input{:name => "last_name", :type => "text"}/
+      %label{:for => "email"} Email *
+      %input#email.required.email{:name => "email", :type => "text"}/
+      %p (*) Mandatory
+    %h3 Hints
+    %section
+      %ul
+        %li Foo
+        %li Bar
+        %li Foobar
+    %h3 Finish
+    %section
+      %input#acceptTerms.required{:name => "acceptTerms", :type => "checkbox"}/
+      %label{:for => "employed"} I agree with the Terms and Conditions.
+JavaScript
 
-  .form-inputs
+
+
+
+
+
+
+-# .row
+-#   .col-lg-12
+-#     .ibox
+-#       .ibox-content
+-#         %h2
+-#           Add Client
+-#         %p
+-#           Vehicle generation will be based on your answers to the following questions:
+-#         = simple_form_for Client.new , html: {  "data-no-turbolink": true , id: 'form', class: 'wizard-big'} do |f|
+-#           %h1 Client Name
+-#           %fieldset
+-#             %h2#form-p-1 Client Name
+-#             .row
+-#               .col-lg-12
+-#                 .form-group
+-#                   -# = f.input :first_name, label: "Vehicle Identifcation Number (VIN)", required: true, autofocus: true
+-#                   = f.input :first_name, required: true
+-#                   = f.input :middle_name
+-#                   = f.input :last_name, required: true
+-#                   = f.input :preferred_name
+-#           %h1 Contact Information
+-#           %fieldset
+-#             %h2 Phone/email/address
+-#             .row
+-#               .col-lg-6
+-#                 .form-group
+-#                   = f.input :primary_phone
+-#                   = f.input :secondary_phone
+-#                   = f.input :text_messages
+-#                   = f.input :email
+-#               .col-lg-6
+-#                 .form-group
+-#                   = f.input :street_address
+-#                   = f.input :city
+-#                   = f.input :state
+-#                   = f.input :zip_code
+-#           %h1 Additional Information
+-#           %fieldset
+-#             %h2 sample
+-#             .row
+-#               .col-lg-12
+-#                 %div#vehicle-data-insert
+-#                   %p
+-#                     More Here
+-#           %h1 Extras
+-#           %fieldset
+-#             %h2 More info
+-#             .row
+-#               .col-lg-12
+-#                 %div#vehicle-data-insert
+-#                   %p
+-#                     More Here
+-#
+-#
+
+
+-# = simple_form_for(@client) do |f|
+-#   = f.error_notification
+-#
+-#   .form-inputs
     = f.input :first_name
     = f.input :middle_name
     = f.input :last_name
     = f.input :preferred_name
-
-  .form-actions
-    = f.button :submit
+-#
+-#   .form-actions
+-#     = f.button :submit

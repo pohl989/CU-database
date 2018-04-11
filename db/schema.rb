@@ -10,16 +10,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022001045) do
+ActiveRecord::Schema.define(version: 20180411025427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "profiles", force: :cascade do |t|
+  create_table "clients", force: :cascade do |t|
+    t.date "date_of_birth"
+    t.string "gender"
+    t.string "country_of_origin"
+    t.string "primary_language"
+    t.string "english_proficiency"
+    t.boolean "employed"
+    t.string "employment_type"
+    t.boolean "health_insurance"
+    t.boolean "medical_home"
+    t.boolean "primary_physician"
+    t.boolean "registered_to_vote"
+    t.integer "household_size"
+    t.integer "children_under_18"
+    t.string "household_income"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contact_events", force: :cascade do |t|
+    t.integer "contact_id"
+    t.integer "event_id"
+    t.boolean "lead"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.integer "user_id"
     t.string "first_name"
     t.string "last_name"
-    t.string "title"
+    t.string "middle_name"
+    t.string "preferred_name"
     t.string "email"
+    t.string "primary_phone"
+    t.string "secondary_phone"
+    t.boolean "text_messages"
+    t.string "street_address"
+    t.string "city"
+    t.string "state"
+    t.string "zip_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.date "date"
+    t.time "start_time"
+    t.time "end_time"
+    t.float "length"
+    t.integer "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,6 +85,7 @@ ActiveRecord::Schema.define(version: 20171022001045) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role", default: 0
+    t.integer "contact_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
