@@ -1,0 +1,45 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @contact.user_id
+%p
+  %b First name:
+  = @contact.first_name
+%p
+  %b Last name:
+  = @contact.last_name
+%p
+  %b Middle name:
+  = @contact.middle_name
+%p
+  %b Preferred name:
+  = @contact.preferred_name
+%p
+  %b Email:
+  = @contact.email
+%p
+  %b Primary phone:
+  = @contact.primary_phone
+%p
+  %b Secondary phone:
+  = @contact.secondary_phone
+%p
+  %b Text messages:
+  = @contact.text_messages
+%p
+  %b Street address:
+  = @contact.street_address
+%p
+  %b City:
+  = @contact.city
+%p
+  %b State:
+  = @contact.state
+%p
+  %b Zip code:
+  = @contact.zip_code
+
+= link_to 'Edit', edit_contact_path(@contact)
+\|
+= link_to 'Back', contacts_path

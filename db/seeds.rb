@@ -6,66 +6,58 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create! ([
-  email: "pohl989@gmail.com",
-  password: "password",
-  password_confirmation: "password" ,
+require 'faker'
+
+50.times {
+  Contact.create!([
+    first_name: "Benjamin",
+    middle_name: "Jacob",
+    last_name: "Pohl",
+    preferred_name: "Ben",
+    primary_phone: Faker::PhoneNumber.phone_number,
+    secondary_phone: Faker::PhoneNumber.phone_number,
+    text_messages: Faker::Boolean.boolean(0.8),
+    email: Faker::Internet.email,
+    street_address: Faker::Address.street_name,
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    zip_code: Faker::Address.zip_code,
   ])
+}
 
+puts "Added Contacts"
+Contact.all.each do |c|
+  User.create!(
+    email: c.email,
+    password: "password",
+    password_confirmation: "password" ,
+    contact_id: c.id,
+    )
+end
+puts "Added Users"
 
-Client.create! ([
-  first_name: "laffy",
-  # t.string :middle_name
-  last_name: "taffy",
-  # t.string :preferred_name
-  # t.string :primary_phone
-  # t.string :secondary_phone
-  # t.boolean :text_messages
-  # t.string :email
-  # t.string :street_address
-  # t.string :city
-  # t.string :state
-  # t.string :zip_code
-  # t.date :date_of_birth
-  # t.string :gender
-  # t.string :country_of_origin
-  # t.string :primary_language
-  # t.string :english_proficiency
-  # t.boolean :employed
-  # t.string :employment_type
-  # t.boolean :health_insurance
-  # t.boolean :medical_home
-  # t.boolean :primary_physician
-  # t.boolean :registered_to_vote
-  # t.integer :household_size
-  # t.integer :children_under_18
-  # t.string :household_income
-
-  ])
-
-  t.string :first_name
-  t.string :middle_name
-  t.string :last_name
-  t.string :preferred_name
-  t.string :primary_phone
-  t.string :secondary_phone
-  t.boolean :text_messages
-  t.string :email
-  t.string :street_address
-  t.string :city
-  t.string :state
-  t.string :zip_code
-  t.date :date_of_birth
-  t.string :gender
-  t.string :country_of_origin
-  t.string :primary_language
-  t.string :english_proficiency
-  t.boolean :employed
-  t.string :employment_type
-  t.boolean :health_insurance
-  t.boolean :medical_home
-  t.boolean :primary_physician
-  t.boolean :registered_to_vote
-  t.integer :household_size
-  t.integer :children_under_18
-  t.string :household_income
+# Client.create(
+#   # date_of_birth:
+#   # gender:
+#   # country_of_origin:
+#   # primary_language:
+#   # english_proficiency:
+#   # employed:
+#   # employment_type:
+#   # health_insurance:
+#   # medical_home:
+#   # primary_physician:
+#   # registered_to_vote:
+#   # household_size:
+#   # children_under_18:
+#   # household_income:
+#   )
+#
+#   Event.create!(
+#     title:
+#     date:
+#     start_time:
+#     end_time:
+#     length:
+#     location_id:
+#     )
