@@ -8,6 +8,9 @@
 
 require 'faker'
 
+Contact.create!([first_name: "Ben", last_name: "Pohl", email: "pohl989@gmail.com", role: 3])
+puts "Created Admin Account"
+
 50.times {
   Contact.create!([
     first_name: Faker::Name.first_name,
@@ -36,23 +39,24 @@ Contact.all.each do |c|
 end
 puts "Added Users"
 
-# Client.create(
-#   # date_of_birth:
-#   # gender:
-#   # country_of_origin:
-#   # primary_language:
-#   # english_proficiency:
-#   # employed:
-#   # employment_type:
-#   # health_insurance:
-#   # medical_home:
-#   # primary_physician:
-#   # registered_to_vote:
-#   # household_size:
-#   # children_under_18:
-#   # household_income:
-#   )
-#
+Client.create(
+  # date_of_birth:
+  # gender:
+  # country_of_origin:
+  # primary_language:
+  # english_proficiency:
+  # employed:
+  # employment_type:
+  # health_insurance:
+  # medical_home:
+  # primary_physician:
+  # registered_to_vote:
+  # household_size:
+  # children_under_18:
+  # household_income:
+  )
+
+10.times do
   Event.create!(
     title: Faker::App.name,
     date: Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today),
@@ -61,3 +65,15 @@ puts "Added Users"
     # length:
     # location_id:
     )
+end
+
+100.times do
+  ContactEvent.create!(
+    event_id: rand(1..Event.count),
+    contact_id: rand(1..Contact.count),
+    lead: false,
+  )
+end
+
+
+puts "Added Events"
