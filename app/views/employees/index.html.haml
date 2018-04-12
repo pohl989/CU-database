@@ -1,0 +1,38 @@
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+    .col-lg-12
+      .ibox.float-e-margins
+        .ibox-title
+          = link_to new_event_path do
+            %button.btn.btn-success{:type => "button"}
+              %i.fa.fa-plus &nbsp;New
+        .ibox-content
+          %h1 Employees
+
+          %table.eventList.table.table-outline.table-striped
+            %thead
+              %tr
+                %th First name
+                %th Middle name
+                %th Last name
+                %th Preferred name
+                %th
+                %th
+                %th
+
+            %tbody
+              - @users.each do |user|
+                %tr
+                  %td= user.contact.first_name
+                  %td= user.contact.middle_name
+                  %td= user.contact.last_name
+                  %td= user.contact.preferred_name
+                  %td= link_to 'Show', employee_path(user)
+                  %td= link_to 'Edit', edit_employee_path(user)
+                  %td= link_to "Delete", employee_path(user), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }
+
+                  -# %td= link_to 'Destroy', destroy_employee_path(user), method: :delete, data: { confirm: 'Are you sure?' }
+
+            %br
+
+            = link_to 'New Client', new_client_path

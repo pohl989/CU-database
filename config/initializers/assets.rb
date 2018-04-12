@@ -44,4 +44,14 @@ steps/jquery.steps.css
 validate/jquery.validate.min.js
 
 datapicker/bootstrap-datepicker.js
+
+contacts.js
+contacts.css
+
+events.js
+events.css
+
+employees.js
+employees.css
+
 )

@@ -8,12 +8,15 @@
 
 require 'faker'
 
+Contact.create!([first_name: "Ben", last_name: "Pohl", email: "pohl989@gmail.com", role: 3])
+puts "Created Admin Account"
+
 50.times {
   Contact.create!([
-    first_name: "Benjamin",
-    middle_name: "Jacob",
-    last_name: "Pohl",
-    preferred_name: "Ben",
+    first_name: Faker::Name.first_name,
+    middle_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    preferred_name: Faker::Name.first_name,
     primary_phone: Faker::PhoneNumber.phone_number,
     secondary_phone: Faker::PhoneNumber.phone_number,
     text_messages: Faker::Boolean.boolean(0.8),
@@ -36,28 +39,41 @@ Contact.all.each do |c|
 end
 puts "Added Users"
 
-# Client.create(
-#   # date_of_birth:
-#   # gender:
-#   # country_of_origin:
-#   # primary_language:
-#   # english_proficiency:
-#   # employed:
-#   # employment_type:
-#   # health_insurance:
-#   # medical_home:
-#   # primary_physician:
-#   # registered_to_vote:
-#   # household_size:
-#   # children_under_18:
-#   # household_income:
-#   )
-#
-#   Event.create!(
-#     title:
-#     date:
-#     start_time:
-#     end_time:
-#     length:
-#     location_id:
-#     )
+Client.create(
+  # date_of_birth:
+  # gender:
+  # country_of_origin:
+  # primary_language:
+  # english_proficiency:
+  # employed:
+  # employment_type:
+  # health_insurance:
+  # medical_home:
+  # primary_physician:
+  # registered_to_vote:
+  # household_size:
+  # children_under_18:
+  # household_income:
+  )
+
+10.times do
+  Event.create!(
+    title: Faker::App.name,
+    date: Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today),
+    start_time: Faker::Time.between(2.days.ago, Date.today, :morning),
+    end_time: Faker::Time.between(2.days.ago, Date.today, :evening),
+    # length:
+    # location_id:
+    )
+end
+
+100.times do
+  ContactEvent.create!(
+    event_id: rand(1..Event.count),
+    contact_id: rand(1..Contact.count),
+    lead: false,
+  )
+end
+
+
+puts "Added Events"
