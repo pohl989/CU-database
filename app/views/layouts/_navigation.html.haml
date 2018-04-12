@@ -29,6 +29,14 @@
         = link_to "/" do
           %i.fa.fa-tachometer{"aria-hidden" => "true"}
           %span.nav-label Dashboard
+      %li{:class => "#{'active' if current_page?('/contacts')}"}
+        = link_to contacts_path do
+          %i.fa.fa-id-card{"aria-hidden" => "true"}
+          %span.nav-label Contacts
+      %li{:class => "#{'active' if current_page?('/events')}"}
+        = link_to events_path do
+          %i.fa.fa-calendar-check-o{"aria-hidden" => "true"}
+          %span.nav-label Events
       - if signed_in?
         - if current_user.admin?
           %li{:class => "#{'active' if current_page?('/')}"}
