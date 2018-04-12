@@ -39,10 +39,10 @@
           %span.nav-label Events
       - if signed_in?
         - if current_user.admin?
-          %li{:class => "#{'active' if current_page?('/')}"}
-            = link_to root_path do
+          %li{:class => "#{'active' if current_page?('/employees')}"}
+            = link_to employees_path do
               %i.fa.fa-user{"aria-hidden" => "true"}
-              %span.nav-label User Management
+              %span.nav-label Employees
       %li{:class => "#{'active' if current_page?('/')}"}
         %a{:href => "#"}
           %i.fa.fa-area-chart{"aria-hidden" => "true"}

@@ -51,4 +51,7 @@ contacts.css
 events.js
 events.css
 
+employees.js
+employees.css
+
 )
