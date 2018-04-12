@@ -1,13 +1,79 @@
-= simple_form_for(@event) do |f|
-  = f.error_notification
-
-  .form-inputs
-    = f.input :title
-    = f.input :date
-    = f.input :start_time
-    = f.input :end_time
-    = f.input :length
-    = f.input :location_id
-
-  .form-actions
-    = f.button :submit
+.wrapper.wrapper-content.animated.fadeIn
+  .row.new_agreement
+    .col-lg-12
+      .ibox
+        .ibox-content
+          .col-lg-12
+            %h2
+              %i.fa.fa-list-alt{:style => "font-size: 40px; color: #e5e5e5; padding-right: 10px;"}
+              Add New Event
+            %p
+              Please respond to all of the questions to create a new Contact:
+          = simple_form_for Event.new , html: {  "data-no-turbolink": true , id: 'form', class: 'wizard-big'} do |f|
+            %h1 Required
+            %fieldset
+              .row
+                .col-lg-6
+                  .form-group
+                    = f.input :title, required: true, autofocus: true
+                    = f.input :date, require: true, class: "bsdatepicker"
+            %h1 Required II
+            %fieldset
+              .row
+                .col-lg-6
+                  .form-group
+                    = f.input :start_time
+                .col-lg-6
+                  .form-group
+            %h1 Optional
+            %fieldset
+              .row
+                .col-md-6
+                  = f.input :end_time
+                .col-md-6
+                  .form-group
+                    -# = f.input :street_address
+                    -# = f.input :city
+                    -# = f.input :state
+                    -# = f.input :zip_code
+            %h1 Review
+            %fieldset
+              %h2 Create Event
+              .row
+                .col-lg-12
+                  %p
+                    %em
+                      Is this information correct? If it looks correct, press "Create Event".
+                  .col-md-6.agreement-summary
+                    %dl.dl-horizontal
+                      %dt Title:
+                      %dd#verify-title
+                      %dt Agency:
+                      %dd#verify-agency
+                      %dt Division:
+                      %dd#verify-division
+                      %dt Start Year:
+                      %dd#verify-start-year
+                      %dt Start Date:
+                      %dd#verify-start-date
+                      %dt End Date:
+                      %dd#verify-end-date
+                  .col-md-6.agreement-summary
+                    %dl.dl-horizontal
+                      %dt Reporting Cycle:
+                      %dd#verify-reporting-cycle
+                      %dt Location:
+                      %dd#verify-location
+                      %dt AmeriCorps:
+                      %dd
+                        .fa.fa-check.text-success.hidden#verify-americorps-true
+                        .fa.fa-ban.text-danger.hidden#verify-americorps-false
+                      %dt PLC:
+                      %dd
+                        .fa.fa-check.text-success.hidden#verify-plc-true
+                        .fa.fa-ban.text-danger.hidden#verify-plc-false
+%br/
+= javascript_include_tag "datapicker/bootstrap-datepicker.js"
+= javascript_include_tag "steps/jquery.steps.min.js"
+= javascript_include_tag "validate/jquery.validate.min.js"
+= stylesheet_link_tag "steps/jquery.steps"
