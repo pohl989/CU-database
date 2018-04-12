@@ -3,30 +3,24 @@
 //= require steps/jquery.steps.min.js
 
 
-
-var dd,file_title, mm, today, yyyy;
+var dd, file_title, mm, today, yyyy;
 
 today = new Date;
-dd = today.getDate()
+dd = today.getDate();
 mm = today.getMonth() + 1;
 yyyy = today.getFullYear();
 
-if (dd < 10) {
-  dd = '0' + dd;
-}
+if (dd < 10) { dd = '0' + dd;}
 
-if (mm < 10) {
-  mm = '0' + mm;
-}
+if (mm < 10) { mm = '0' + mm;}
 
 today = mm + '.' + dd + '.' + yyyy;
 
-file_title = 'ListOfContacts_' + today;
+file_title = 'ListOfEmployees_' + today;
 
 $(function() {
-  var form,
-    table;
-  table = $('.contactList').DataTable({
+  var form, table;
+  table = $('.employleeList').DataTable({
     pageLength: 25,
     responsive: true,
     ordering: true,
@@ -53,7 +47,7 @@ $(function() {
       }
     ]
   });
-  form = $('#clientForm');
+  form = $('#employeeForm');
   form.validate({
     errorPlacement: function(error, element) {
       element.before(error);
@@ -76,6 +70,8 @@ $(function() {
     }
   });
 });
+
+
 
 if ($('#form').length > 0) {
   $(function() {
@@ -105,9 +101,25 @@ if ($('#form').length > 0) {
           agency_id = $("#agreement_agency_id").val();
           console.log(agency_id);
           form_data = $("form").serialize();
-
+          $.ajax({
+            type: 'GET',
+            url: '/agencies/' + agency_id + '.json?get_locations=true',
+            dataType: 'json',
+            success: function(jsonData) {
+              var dropDown;
+              dropDown = $("#agreement_location_id");
+              dropDown.empty();
+              dropDown.prop("selectedIndex", 0);
+              $.each(jsonData, function(key, value) {
+                return dropDown.append($('<option></option>').attr('value', value.id).text(value.code + ": " + value.title));
+              });
+            },
+            complete: function() {
+              $('#ajax-loading').hide();
+            }
+          });
         } else if (currentIndex === 3) {
-      
+          //This is were we put the confirmation page.
 
         }
       },
@@ -128,10 +140,6 @@ if ($('#form').length > 0) {
       errorPlacement: function(error, element) {
         element.before(error);
       },
-      rules: {
-        start_year: 'required',
-        division_id: 'required'
-      }
     });
   });
 }
