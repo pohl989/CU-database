@@ -8,21 +8,31 @@
               %i.fa.fa-list-alt{:style => "font-size: 40px; color: #e5e5e5; padding-right: 10px;"}
               Add New Event
             %p
-              Please respond to all of the questions to create a new Contact:
-          = simple_form_for Event.new , html: {  "data-no-turbolink": true , id: 'form', class: 'wizard-big'} do |f|
+              Please respond to all of the questions to create a new Event:
+          = simple_form_for @event, html: {  "data-no-turbolink": true , id: 'form', class: 'wizard-big'} do |f|
             %h1 Required
             %fieldset
               .row
                 .col-lg-6
                   .form-group
                     = f.input :title, required: true, autofocus: true
-                    = f.input :date, require: true, class: "bsdatepicker"
+                    -# = f.input :date, require: true, class: "bsdatepicker"
             %h1 Required II
             %fieldset
               .row
                 .col-lg-6
                   .form-group
-                    = f.input :start_time
+                    -# #docusign_signings
+                    -#   = docusign.simple_fields_for :docusign_signings do |docusign_signing|
+                    -#     = render 'docusign_signing_fields', f: docusign_signing
+                    -#   .links
+                    -#     = link_to_add_association 'Add Signer', docusign, :docusign_signings
+
+                    #tasks
+                      = f.simple_fields_for :contact_events do |contact_event|
+                        = render 'contact_events_fields', f: contact_event
+                      .links
+                        -# = link_to_add_association 'add task', f, :contact_events
                 .col-lg-6
                   .form-group
             %h1 Optional
@@ -73,6 +83,7 @@
                         .fa.fa-check.text-success.hidden#verify-plc-true
                         .fa.fa-ban.text-danger.hidden#verify-plc-false
 %br/
+= javascript_include_tag :cocoon
 = javascript_include_tag "datapicker/bootstrap-datepicker.js"
 = javascript_include_tag "steps/jquery.steps.min.js"
 = javascript_include_tag "validate/jquery.validate.min.js"

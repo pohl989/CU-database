@@ -109,26 +109,8 @@ if ($('#form').length > 0) {
       onStepChanged: function(event, currentIndex, priorIndex) {
         var agency, agencySelect, agency_id, americorps, division, divisionSelect, endDate, form_data, location, locationSelect, plc, reportingCycle, reportingCycleSelect, startDate, startYear, title;
         if (currentIndex === 1) {
-          agency_id = $("#agreement_agency_id").val();
-          console.log(agency_id);
           form_data = $("form").serialize();
-          $.ajax({
-            type: 'GET',
-            url: '/agencies/' + agency_id + '.json?get_locations=true',
-            dataType: 'json',
-            success: function(jsonData) {
-              var dropDown;
-              dropDown = $("#agreement_location_id");
-              dropDown.empty();
-              dropDown.prop("selectedIndex", 0);
-              $.each(jsonData, function(key, value) {
-                return dropDown.append($('<option></option>').attr('value', value.id).text(value.code + ": " + value.title));
-              });
-            },
-            complete: function() {
-              $('#ajax-loading').hide();
-            }
-          });
+
         } else if (currentIndex === 3) {
         //This is where we are going to put the confirmation stuff.
         }

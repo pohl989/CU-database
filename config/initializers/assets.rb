@@ -37,6 +37,7 @@ grid.locale-el.js
 query.jqGrid.min.js
 query-ui.min.js
 ootable.all.min.js
+cocoon.js 
 
 steps/jquery.steps.min.js
 steps/jquery.steps.css
