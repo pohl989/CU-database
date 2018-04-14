@@ -23,14 +23,13 @@
               = link_to new_user_session_path do
                 %i.fa.fa-sign-in
                 Log in
-.row.wrapper.border-bottom.white-bg.page-heading
-  .col-lg-5
-    %h2= content_for?(:title) ? yield(:title) : 'CU'
-    %ol.breadcrumb
-      %li
-        = link_to root_path  do
-          %span.fa.fa-home
-          -# = "#{current_user.role.capitalize} Dashboard"
+.row.wrapper.border-bottom.white-bg.page-heading{:style => "padding-top: 10px; padding-bottom;10px"}
+  -# %h2= content_for?(:title) ? yield(:title) : 'CU'
+  %ol.breadcrumb
+    %li
+      = link_to root_path  do
+        %span.fa.fa-home
+          = "#{current_user.role.capitalize} Dashboard"
       -# = render_breadcrumbs tag: :li, separator: ""
   -# .col-lg-7
   -#   .text-center.m-t-lg
