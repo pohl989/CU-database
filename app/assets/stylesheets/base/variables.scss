@@ -1,6 +1,25 @@
+//// materialize colors
+
+$red-lighten-5: #ffebee;
+$red-lighten-4: #ffcdd2;
+$red-lighten-3: #ef9a9a;
+$red-lighten-2: #e57373;
+$red-lighten-1: #ef5350;
+$red: #f44336;
+$red-darken-1: #e53935;
+$red-darken-2: #d32f2f;
+$red-darken-3: #c62828;
+$red-darken-4: #b71c1c;
+$red-accent-1: #ff8a80;
+$red-accent-2: #ff5252;
+$red-accent-3: #ff1744;
+$red-accent-4: #d50000;
+
+
+
 // CU #B81111
 $cu-main: #B81111;
-$cu-second: #B83B11;
+$cu-second: #B81111; //#B83B11;
 // $cu-third:
 $cu-accent: #11B8B8;
 
@@ -43,4 +62,4 @@ $btn-border-radius: 3px;
 //Navigation
 $nav-bg: #2F4050;
 $nav-profile-pattern: image-url("patterns/header-profile.png");
-$nav-text-color: #a7b1c2;
+$nav-text-color: #fff;//$light-gray;  //#a7b1c2;

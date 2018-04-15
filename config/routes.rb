@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :attendances
   resources :employees
   resources :contacts
   resources :events

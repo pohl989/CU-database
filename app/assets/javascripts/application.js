@@ -20,4 +20,5 @@
 //= require peity/jquery.peity.min.js
 //= require iCheck/icheck.min
 //= require slimscroll/jquery.slimscroll.min.js
+//= require cocoon
 //= require inspinia.js

@@ -5,13 +5,7 @@
         .dropdown.profile-element
           %span
             %img{:alt => "image", :src => "#{image_url 'CU-150.png'}"}/
-          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-            %span.clear
-              %span.block.m-t-xs
-                %strong.font-bold= (current_user.email.gsub(/@.*/,'') if signed_in? )||  "Sign In"
-              %span.text-muted.text-xs.block
-                = (current_user.role.upcase if signed_in? )||  ""
-                %b.caret
+          %hr
           %ul.dropdown-menu.animated.fadeInRight.m-t-xs
             - if signed_in?
               %li
@@ -43,7 +37,7 @@
             = link_to employees_path do
               %i.fa.fa-user{"aria-hidden" => "true"}
               %span.nav-label Employees
-      %li{:class => "#{'active' if current_page?('/')}"}
+      %li{:class => "#{'active' if current_page?('/homework')}"}
         %a{:href => "#"}
           %i.fa.fa-area-chart{"aria-hidden" => "true"}
           %span.nav-label{"data-i18n" => "nav.otherpages"} Reporting

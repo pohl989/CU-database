@@ -19,6 +19,10 @@
   %b Location:
   = @event.location_id
 
+%p
+  %b First Name of first contact at event:
+  = @event.contacts.empty? ? "nope" : @event.contacts.first.first_name
+
 = link_to 'Edit', edit_event_path(@event)
 \|
 = link_to 'Back', events_path

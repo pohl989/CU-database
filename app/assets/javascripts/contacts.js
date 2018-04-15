@@ -105,61 +105,10 @@ if ($('#form').length > 0) {
           agency_id = $("#agreement_agency_id").val();
           console.log(agency_id);
           form_data = $("form").serialize();
-          $.ajax({
-            type: 'GET',
-            url: '/agencies/' + agency_id + '.json?get_locations=true',
-            dataType: 'json',
-            success: function(jsonData) {
-              var dropDown;
-              dropDown = $("#agreement_location_id");
-              dropDown.empty();
-              dropDown.prop("selectedIndex", 0);
-              $.each(jsonData, function(key, value) {
-                return dropDown.append($('<option></option>').attr('value', value.id).text(value.code + ": " + value.title));
-              });
-            },
-            complete: function() {
-              $('#ajax-loading').hide();
-            }
-          });
+
         } else if (currentIndex === 3) {
-          title = form.querySelector('#agreement_title').value;
-          agencySelect = form.querySelector('#agreement_agency_id');
-          agency = agencySelect.options[agencySelect.selectedIndex].innerText;
-          divisionSelect = form.querySelector('#agreement_division_id');
-          division = divisionSelect.options[divisionSelect.selectedIndex].innerText;
-          startYear = form.querySelector('#agreement_start_year').value;
-          startDate = form.querySelector('#agreement_start_date').value;
-          endDate = form.querySelector('#agreement_end_date').value;
-          reportingCycleSelect = form.querySelector('#agreement_reporting_cycle');
-          reportingCycle = reportingCycleSelect.options[reportingCycleSelect.selectedIndex].innerText;
-          locationSelect = form.querySelector('#agreement_location_id');
-          americorps = form.querySelector('#agreement_americorps').value;
-          plc = form.querySelector('#agreement_plc').value;
-          if (locationSelect.length > 0) {
-            location = locationSelect.options[locationSelect.selectedIndex].innerText;
-            document.querySelector('#verify-location').textContent = location;
-          }
-          console.log(startDate + " to " + endDate);
-          document.querySelector('#verify-title').textContent = title;
-          document.querySelector('#verify-agency').textContent = agency;
-          document.querySelector('#verify-division').textContent = division;
-          document.querySelector('#verify-start-year').textContent = startYear;
-          document.querySelector('#verify-start-date').textContent = startDate;
-          document.querySelector('#verify-end-date').textContent = endDate;
-          document.querySelector('#verify-reporting-cycle').textContent = reportingCycle;
-          console.log("Americorps: " + americorps);
-          console.log("PLC: " + plc);
-          if (plc != null) {
-            document.querySelector('#verify-plc-true').classList.remove('hidden');
-          } else {
-            document.querySelector('#verify-plc-false').classList.remove('hidden');
-          }
-          if (americorps != null) {
-            document.querySelector('#verify-americorps-true').classList.remove('hidden');
-          } else {
-            document.querySelector('#verify-americorps-false').classList.remove('hidden');
-          }
+      
+
         }
       },
       onFinishing: function(event, currentIndex) {
