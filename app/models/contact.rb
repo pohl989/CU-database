@@ -1,9 +1,9 @@
 class Contact < ApplicationRecord
 
   has_one :user
-  has_many :contact_event
-  accepts_nested_attributes_for :contact_event, reject_if: :all_blank, allow_destroy: true
-  has_many :events, through: :contact_event
+  has_many :attendances
+  accepts_nested_attributes_for :attendances, reject_if: :all_blank, allow_destroy: true
+  has_many :events, through: :attendances
   has_one :client
 
 

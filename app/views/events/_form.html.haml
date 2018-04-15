@@ -29,10 +29,10 @@
                     -#     = link_to_add_association 'Add Signer', docusign, :docusign_signings
 
                     #tasks
-                      = f.simple_fields_for :contact_events do |contact_event|
-                        = render 'contact_events_fields', f: contact_event
+                      = f.simple_fields_for :attendances do |attendance|
+                        = render 'attendance_fields', f: attendance
                       .links
-                        -# = link_to_add_association 'add task', f, :contact_events
+                        = link_to_add_association 'add task', f, :attendances
                 .col-lg-6
                   .form-group
             %h1 Optional
@@ -83,7 +83,7 @@
                         .fa.fa-check.text-success.hidden#verify-plc-true
                         .fa.fa-ban.text-danger.hidden#verify-plc-false
 %br/
-= javascript_include_tag :cocoon
+-# = javascript_include_tag :cocoon
 = javascript_include_tag "datapicker/bootstrap-datepicker.js"
 = javascript_include_tag "steps/jquery.steps.min.js"
 = javascript_include_tag "validate/jquery.validate.min.js"

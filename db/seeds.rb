@@ -8,7 +8,7 @@
 
 require 'faker'
 
-Contact.create!([first_name: "Ben", last_name: "Pohl", email: "pohl989@gmail.com", role: 3])
+Contact.create!([first_name: "Ben", last_name: "Pohl", email: "pohl989@gmail.com"])
 puts "Created Admin Account"
 
 50.times {
@@ -68,12 +68,14 @@ Client.create(
 end
 
 100.times do
-  ContactEvent.create!(
+  Attendance.create!(
     event_id: rand(1..Event.count),
     contact_id: rand(1..Contact.count),
-    lead: false,
+    lead: Faker::Boolean.boolean(0.1),
   )
 end
 
 
 puts "Added Events"
+
+User.first.update role: 3
