@@ -1,6 +1,9 @@
 .nested-fields
-  = f.input :contact_id, as: :integer
-  -# = f.input :lead, as: :boolean
-  -# = link_to_remove_association "remove task", f
-  = link_to_remove_association f, class: 'btn btn-default btn-xs' do
-    .fa.fa-user
+  %div{style: "display: inline;"}
+    = f.association :contact, collection: Contact.staff, label_method: :preferred_full_name, value_method: :id, include_blank: false, require: true, prompt: "Select Staff Member"
+    = f.input :lead, as: :boolean
+    %div{style: "display: inline;"}
+      = link_to_remove_association "remove", f
+  -# %div{style: "display: inline;"}
+  -#   = link_to_remove_association f, class: 'btn btn-default btn-xs' do
+  -#   .fa.fa-user

@@ -6,6 +6,7 @@ class Contact < ApplicationRecord
   has_many :events, through: :attendances
   has_one :client
 
+  enum category: {client: 0, staff: 1}
 
   def last_first_name
     return "#{last_name}, #{first_name}"

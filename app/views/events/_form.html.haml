@@ -32,7 +32,7 @@
                       = f.simple_fields_for :attendances do |attendance|
                         = render 'attendance_fields', f: attendance
                       .links
-                        = link_to_add_association 'add task', f, :attendances
+                        = link_to_add_association 'add', f, :attendances
                 .col-lg-6
                   .form-group
             %h1 Optional
