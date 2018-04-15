@@ -1,28 +1,34 @@
-%p#notice= notice
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+    .col-md-12
+      .ibox
+        .ibox-title
+          %h3.text-center
+            =@event.title? ? @event.title : "Event"
+        .ibox-content
+          %p
+            %b Title:
+            = @event.title
+          %p
+            %b Date:
+            = @event.date
+          %p
+            %b Start time:
+            = @event.start_time
+          %p
+            %b End time:
+            = @event.end_time
+          %p
+            %b Length:
+            = @event.length
+          %p
+            %b Location:
+            = @event.location_id
 
-%p
-  %b Title:
-  = @event.title
-%p
-  %b Date:
-  = @event.date
-%p
-  %b Start time:
-  = @event.start_time
-%p
-  %b End time:
-  = @event.end_time
-%p
-  %b Length:
-  = @event.length
-%p
-  %b Location:
-  = @event.location_id
+          %p
+            %b First Name of first contact at event:
+            = @event.contacts.empty? ? "nope" : @event.contacts.first.first_name
 
-%p
-  %b First Name of first contact at event:
-  = @event.contacts.empty? ? "nope" : @event.contacts.first.first_name
-
-= link_to 'Edit', edit_event_path(@event)
-\|
-= link_to 'Back', events_path
+          = link_to 'Edit', edit_event_path(@event)
+          \|
+          = link_to 'Back', events_path

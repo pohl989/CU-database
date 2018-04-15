@@ -25,6 +25,7 @@ puts "Created Admin Account"
     city: Faker::Address.city,
     state: Faker::Address.state,
     zip_code: Faker::Address.zip_code,
+    category: rand(0..1),
   ])
 }
 

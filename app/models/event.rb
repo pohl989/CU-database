@@ -9,4 +9,6 @@ class Event < ApplicationRecord
   accepts_nested_attributes_for :attendances, reject_if: :all_blank, allow_destroy: true
   has_many :contacts, through: :attendances
 
+
+
 end
