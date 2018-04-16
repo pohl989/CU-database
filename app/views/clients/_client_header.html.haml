@@ -30,11 +30,9 @@
             .user-button
               .row
                 .col-md-8
-                  %a.btn.btn-white.btn-xs.pull-right{:href => "#{edit_contact_path(@contact)}"} Edit Contact
-
-                  -# = link_to edit_contact_path(@contact), class: "btn btn-primary btn-sm btn-block" do
-                  -#   %i.fa.fa-folder
-                  -#     View
+                  = link_to edit_contact_path(@contact), class: "btn btn-primary btn-sm btn-block" do
+                    %i.fa.fa-folder
+                      View
                   -# %button.btn.btn-primary.btn-sm.btn-block{:type => "button"}
                   -#   %i.fa.fa-edit
                   -#   Edit

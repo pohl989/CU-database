@@ -1,7 +1,17 @@
-%h1 Editing event
-
-= render 'form'
-
-= link_to 'Show', @event
-\|
-= link_to 'Back', events_path
+.wrapper.wrapper-content.animated.fadeInRight
+  .col-lg-12
+    .ibox.float-e-margins
+      .ibox-title
+        %h5 Edit event information for #{@event.title}'s
+      .ibox-content
+        .col-lg-10
+          = simple_form_for(@event) do |f|
+            = f.error_notification
+            .form-inputs
+              .form-group
+                = f.input :title, label_html: { class: 'control-label' }, input_html: { class: 'form-control'}
+              .form-group
+                = f.input :date, label_html: { class: 'control-label' }, input_html: { class: 'form-control'}
+            .form-actions
+              = f.button :submit, :class => "btn-info pull-right"
+            .clearfix
