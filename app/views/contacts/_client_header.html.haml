@@ -3,7 +3,7 @@
     .ibox
       .ibox-content{:style => "border-radius: 4px"}
         .col-md-6.col-xs-12
-          .profile-image
+          -# .profile-image
             -# %img.img-circle.circle-border.m-b-md{:alt => "profile", :src => "#{image_url @member.picture_url ? @member.picture_url : image_path('user-icon.png')}"}/
           .profile-info
             %div
@@ -19,33 +19,21 @@
         .col-md-3
           %table.table.small.m-b-xs
             %tbody
-              %tr
-                %td
-                  %strong 142
-                  Hours
-                %td
-                  %strong 22
-                  Followers
-              %tr
-                %td
-                  %strong 61
-                  Comments
-                %td
-                  %strong 54
-                  Articles
-              %tr
-                %td
-                  %strong 154
-                  Tags
-                %td
-                  %strong 32
-                  Friends
+              %td{:style => "border: none"}
+                %strong=@contact.events.sum(:length)
+                Hours
+              %td{:style => "border: none"}
+                %strong=@contact.events.count
+                Count
         .col-md-3.col-sm-6
           .br
             .user-button
               .row
                 .col-md-8
-                  %button.btn.btn-primary.btn-sm.btn-block{:type => "button"}
-                    %i.fa.fa-envelope
-                    Send Message
+                  = link_to edit_contact_path(@contact), class: "btn btn-primary btn-sm btn-block" do
+                    %i.fa.fa-folder
+                      View
+                  -# %button.btn.btn-primary.btn-sm.btn-block{:type => "button"}
+                  -#   %i.fa.fa-edit
+                  -#   Edit
         .clearfix
