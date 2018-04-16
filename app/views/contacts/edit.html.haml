@@ -1,7 +1,36 @@
-%h1 Editing contact
-
-= render 'form'
-
-= link_to 'Show', @contact
-\|
-= link_to 'Back', contacts_path
+.wrapper.wrapper-content.animated.fadeInRight
+  .col-lg-12
+    .ibox.float-e-margins
+      .ibox-title
+        %h5 Edit #{@contact.preferred_full_name}'s Contact Information
+      .ibox-content
+        %p Sign in today for more experience.
+        .col-lg-10
+          = simple_form_for(@contact) do |f|
+            = f.error_notification
+            .form-inputs
+              .form-group
+                = f.input :first_name, label_html: { class: 'control-label' }, input_html: { class: 'form-control'}
+              .form-group
+                = f.input :preferred_name, label_html: { class: 'control-label' }, input_html: { class: 'form-control'}
+              .form-group
+                = f.input :middle_name, label_html: { class: 'control-label' }, input_html: { class: 'form-control'}
+              .form-group
+                = f.input :last_name, label_html: { class: 'control-label' }, input_html: { class: 'form-control'}
+              .form-group
+                = f.input :email, label_html: { class: 'control-label' }, input_html: { class: 'form-control'}
+              .form-group
+                = f.input :primary_phone, label_html: { class: 'control-label' }, input_html: { class: 'form-control'}
+              .form-group
+                = f.input :secondary_phone, label_html: { class: 'control-label' }, input_html: { class: 'form-control'}
+              .form-group
+                = f.input :street_address, label_html: { class: 'control-label' }, input_html: { class: 'form-control'}
+              .form-group
+                = f.input :city, label_html: { class: 'control-label' }, input_html: { class: 'form-control'}
+              .form-group
+                = f.input :state, label_html: { class: 'control-label' }, input_html: { class: 'form-control'}
+              .form-group
+                = f.input :zip_code, label_html: { class: 'control-label' }, input_html: { class: 'form-control'}
+            .form-actions
+              = f.button :submit, :class => "btn-info pull-right"
+            .clearfix

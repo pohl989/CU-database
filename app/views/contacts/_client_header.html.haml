@@ -1,0 +1,39 @@
+.row.animated.fadeInRight
+  .col-sm-12
+    .ibox
+      .ibox-content{:style => "border-radius: 4px"}
+        .col-md-6.col-xs-12
+          -# .profile-image
+            -# %img.img-circle.circle-border.m-b-md{:alt => "profile", :src => "#{image_url @member.picture_url ? @member.picture_url : image_path('user-icon.png')}"}/
+          .profile-info
+            %div
+              %div
+                %h2.no-margins
+                  =@contact.preferred_full_name
+                %p{:title =>"email"}
+                  %i.fa.fa-envelope
+                    =mail_to "#{@contact.email}"
+                %p{:title => "Phone"}
+                  %i.fa.fa-phone
+                    =link_to @contact.primary_phone ? @contact.primary_phone : ""
+        .col-md-3
+          %table.table.small.m-b-xs
+            %tbody
+              %td{:style => "border: none"}
+                %strong=@contact.events.sum(:length)
+                Hours
+              %td{:style => "border: none"}
+                %strong=@contact.events.count
+                Count
+        .col-md-3.col-sm-6
+          .br
+            .user-button
+              .row
+                .col-md-8
+                  = link_to edit_contact_path(@contact), class: "btn btn-primary btn-sm btn-block" do
+                    %i.fa.fa-folder
+                      View
+                  -# %button.btn.btn-primary.btn-sm.btn-block{:type => "button"}
+                  -#   %i.fa.fa-edit
+                  -#   Edit
+        .clearfix

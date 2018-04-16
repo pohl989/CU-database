@@ -1,45 +1,55 @@
+=render "contacts/client_header"
+.row.animated.fadeInBottom
+  .col-sm-12
+    .ibox
+      .ibox-title
+        %h3.text-center
+          Events
+      .ibox-content{:style => "border-radius: 4px"}
+        %table.table.table-hover
+          %tbody
+            - @attendances.each do |attendance|
+              %tr
+                %td.project-status
+                  =attendance.event.date
+                %td
+                  = link_to "#{attendance.event.present? ? attendance.event.title.truncate(40, separator: ' ') : na}", event_path(attendance.event)
+                  %br/
+                  -# #{project.division.program.try(:code) || na}
+                  -# #{project.division.try(:code) || na}
+                  -# #{project.division.try(:location) || na}
+                  %br/
+                  %small
+                    -# - unless project.start_date.blank?
+                    -#   #{project.try(:start_date).strftime("%m/%d/%y") || na}
+                    -# to
+                    -# - if project.end_date.blank?
+                    -#   Unavailable
+                    -# - else
+                    -#   #{project.try(:end_date).strftime("%m/%d/%y") || na}
+                %td.project-completion
+                  %small
+                    -# Completion with: #{project.progress_bar}%
+                  .progress.progress-mini
+                    -# .progress-bar{:style => "width: #{project.progress_bar}%;"}
+                  %small
+                    -# Weeks Remaining: #{project.weeks_remaining}
+                %td
+                  %br/
+                  %small
+                    Partner:
+                    %a.text-navy.fa.fa-address-card{:href => "#"}
+                      Jane Goodall
+                  %br/
+                  %small
+                    Crew Leader:
+                    %a.text-navy.fa.fa-address-card{:href => "#"}
+                      Peter Pan
+                %td.project-actions
+                  = link_to event_path(attendance.event), class: "btn btn-white btn-sm" do
+                    %i.fa.fa-folder
+                      View
+  .cleafix
+%br
+
 %p#notice= notice
-
-%p
-  %b User:
-  = @contact.user_id
-%p
-  %b First name:
-  = @contact.first_name
-%p
-  %b Last name:
-  = @contact.last_name
-%p
-  %b Middle name:
-  = @contact.middle_name
-%p
-  %b Preferred name:
-  = @contact.preferred_name
-%p
-  %b Email:
-  = @contact.email
-%p
-  %b Primary phone:
-  = @contact.primary_phone
-%p
-  %b Secondary phone:
-  = @contact.secondary_phone
-%p
-  %b Text messages:
-  = @contact.text_messages
-%p
-  %b Street address:
-  = @contact.street_address
-%p
-  %b City:
-  = @contact.city
-%p
-  %b State:
-  = @contact.state
-%p
-  %b Zip code:
-  = @contact.zip_code
-
-= link_to 'Edit', edit_contact_path(@contact)
-\|
-= link_to 'Back', contacts_path
