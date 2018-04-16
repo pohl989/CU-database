@@ -1,34 +1,72 @@
-.wrapper.wrapper-content.animated.fadeInRight
-  .row
-    .col-md-12
+.row
+  .col-lg-9
+    .wrapper.wrapper-content.animated.fadeInUp
       .ibox
-        .ibox-title
-          %h3.text-center
-            =@event.title? ? @event.title : "Event"
         .ibox-content
-          %p
-            %b Title:
-            = @event.title
-          %p
-            %b Date:
-            = @event.date
-          %p
-            %b Start time:
-            = @event.start_time
-          %p
-            %b End time:
-            = @event.end_time
-          %p
-            %b Length:
-            = @event.length
-          %p
-            %b Location:
-            = @event.location_id
+          .row
+            .col-lg-12
+              .m-b-md
+                %a.btn.btn-white.btn-xs.pull-right{:href => "#{edit_event_path(@event)}"} Edit event
+                %h2=@event.title? ? @event.title.html_safe : na
+              %dl.dl-horizontal
+                %dt Status:
+                %dd
+                  %span.label.label-primary Active
+          .row
+            .col-lg-5
+              %dl.dl-horizontal
+                %dt Category:
+                %dd Top Ramon
+                %dt Location:
+                %dd
+                  %a.text-navy{:href => "#"} Zender Company
+            #cluster_info.col-lg-7
+              %dl.dl-horizontal
+                %dt Date:
+                %dd 16.08.2014 12:15:57
+                %dt Start:
+                %dd 10.07.2014 23:36:57
+                %dt End:
+                %dd 10.07.2014 23:36:57
+          .row.m-t-sm
+            .col-lg-12
+              .panel.blank-panel
+                .panel-heading
+                  .panel-options
+                    %ul.nav.nav-tabs
+                      %li.active
+                        %a{"data-toggle" => "tab", :href => "#tab-1"} Clients
+                      %li
+                        %a{"data-toggle" => "tab", :href => "#tab-2"} Quantifiables
+                .panel-body
+                  .tab-content
+                    #tab-1.tab-pane.active
+                      .feed-activity-list
+                        .feed-element
+                          %a.pull-left{:href => "#"}
+                            -# %img.img-circle{:alt => "image", :src => "#{image_path('a2.jpg')}"}/
 
-          %p
-            %b First Name of first contact at event:
-            = @event.contacts.empty? ? "nope" : @event.contacts.first.first_name
-
-          = link_to 'Edit', edit_event_path(@event)
-          \|
-          = link_to 'Back', events_path
+                    #tab-2.tab-pane
+                      %table.table.table-striped
+                        %thead
+                          %tr
+                            %th Status
+                            %th Title
+                            %th Start Time
+                            %th End Time
+                            %th Comments
+                        %tbody
+                          %tr
+                            %td
+                              %span.label.label-primary
+                                %i.fa.fa-check
+                                Completed
+                            %td
+                              Create project in webapp
+                            %td
+                              12.07.2014 10:10:1
+                            %td
+                              14.07.2014 10:16:36
+                            %td
+                              %p.small
+                                Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable.
