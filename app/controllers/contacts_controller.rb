@@ -4,12 +4,13 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
+    @contacts = Contact.client
   end
 
   # GET /contacts/1
   # GET /contacts/1.json
   def show
+    @attendances = @contact.attendances
   end
 
   # GET /contacts/new

@@ -1,7 +1,25 @@
-%h1 Editing contact
-
-= render 'form'
-
-= link_to 'Show', @contact
-\|
-= link_to 'Back', contacts_path
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+    .col-lg-12
+      .ibox.float-e-margins
+        .ibox-title
+          %h5 Edit #{@contact.preferred_full_name}'s Contact Information
+        .ibox-content
+          %p Sign in today for more experience.
+          .col-lg-10
+            = simple_form_for(@contact) do |f|
+              = f.error_notification
+              .form-inputs
+                = f.input :first_name
+                = f.input :preferred_name
+                = f.input :middle_name
+                = f.input :last_name
+                = f.input :email
+                = f.input :primary_phone
+                = f.input :secondary_phone
+                = f.input :street_address
+                = f.input :city
+                = f.input :state
+                = f.input :zip_code
+              .form-actions
+                = f.button :submit
